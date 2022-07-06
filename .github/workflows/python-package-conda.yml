@@ -51,7 +51,7 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           docker pull quay.io/jgaswer/hio:latest
-          docker run quay.io/jgaswer/hio:latest
+          timeout 25m docker run quay.io/jgaswer/hio:latest
      
   Success:
     needs: [Main, Main01]
